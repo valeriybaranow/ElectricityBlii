@@ -6,5 +6,5 @@ class ChooseElectricMeterCallback(CallbackData, prefix="electricityBill"):
     id: int
     number: int
     owner: str
-    payer: str
-    user_id: str
+    payer: str | None
+    username: str

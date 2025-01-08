@@ -3,7 +3,7 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
 def main_kb(user_telegram_id: int):
     kb_list = [
-        [KeyboardButton(text="Закрепить за собой счетчик"), KeyboardButton(text="👤 Ввести показания")],
+        [KeyboardButton(text="Закрепить за собой счетчик"), KeyboardButton(text="Открепить счетчик"),  KeyboardButton(text="👤 Ввести показания")],
         [KeyboardButton(text="📝 Оплатить"), KeyboardButton(text="📚 Увидеть показания счетчика")]
     ]
     keyboard = ReplyKeyboardMarkup(

@@ -1,7 +1,6 @@
 from playhouse.migrate import *
 
 import config
-from Model.ArtistModel import Artist
 from Model.ElectricMeterModel import ElectricMeter
 
 # SQLite example:
@@ -9,6 +8,12 @@ db = SqliteDatabase(config.DATABASE)
 
 db.connect()
 db.create_tables([ElectricMeter])
+
+ElectricMeter.create(owner='Настя', number=1, last_indications=11)
+ElectricMeter.create(owner='Валерий', number=1, last_indications=11)
+ElectricMeter.create(owner='Валерий', number=1, last_indications=11)
+ElectricMeter.create(owner='Ярослав', number=1, last_indications=11)
+
 db.close()
 
 # migrator = SqliteMigrator(db)

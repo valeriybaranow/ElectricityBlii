@@ -4,7 +4,7 @@ from Callback.ElecticMeterCallback import ChooseElectricMeterCallback
 from Model.ElectricMeterModel import ElectricMeter
 
 
-def ease_link_kb(user_id):
+def pin_electricity_meter(username):
     inline_kb_list = []
     for electricMeter in ElectricMeter.select():
         inline_kb_list.append([
@@ -15,7 +15,7 @@ def ease_link_kb(user_id):
                     id=electricMeter.electric_meter_id,
                     owner=electricMeter.owner,
                     payer=electricMeter.payer,
-                    user_id=user_id,
+                    username=username,
                 ).pack())
         ])
 

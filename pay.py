@@ -16,11 +16,12 @@ from aiogram import F
 from Callback.ElecticMeterCallback import ChooseElectricMeterCallback
 from Hendler.choiseElectricMeterHelper import choose_electric_meter
 from Keyboard.menu import main_kb
-from Keyboard.choseElectricMeter import ease_link_kb
+from Keyboard.pinElectricMeter import pin_electricity_meter
 from Keyboard.createQstInlineKb import create_qst_inline_kb
 from Keyboard.questions import questions
 
 from Hendler.getRandomUser import get_random_person
+from Keyboard.unpinElectricMeter import unpin_electricity_meter
 
 # Bot token can be obtained via https://t.me/BotFather
 TOKEN = config.BOT_TOKEN
@@ -41,7 +42,12 @@ async def cmd_start_2(message: Message):
 
 @dp.message(F.text.lower() == "закрепить за собой счетчик")
 async def get_inline_btn_link(message: Message):
-    await message.answer('Выберите счетчик для прикрепления!', reply_markup=ease_link_kb(message.from_user.id))
+    await message.answer('Выберите счетчик для прикрепления!', reply_markup=pin_electricity_meter(message.from_user.username))
+
+
+@dp.message(F.text.lower() == "открепить счетчик")
+async def get_inline_btn_link(message: Message):
+    await message.answer('Выберите счетчик для открепления!', reply_markup=unpin_electricity_meter(message.from_user.username))
 
 
 @dp.callback_query(ChooseElectricMeterCallback.filter(F.id))
